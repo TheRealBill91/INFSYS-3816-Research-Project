@@ -1,0 +1,8 @@
+.example-header-image {
+    /* background-image: url('../../assets/Images/Icons/Offensive.png'); */
+    background-size: cover;
+}
+
+.mat-card-avatar {
+    border-radius: 0%;
+}
