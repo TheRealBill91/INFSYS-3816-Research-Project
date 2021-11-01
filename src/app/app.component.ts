@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { AngularFireDatabase, AngularFireObject } from '@angular/fire/compat/database';
+import { Observable } from 'rxjs';
 
 @Component({
     selector: 'app-root',
@@ -7,6 +9,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
+    data: Observable<any>;
+    dataRef: AngularFireObject<any>;
     title = 'research-project';
 
     characters: Character[] = [
@@ -29,6 +33,12 @@ export class AppComponent {
         new Character('valkyrie',   'Recon',     'Winged Avenger'),
         new Character('seer',       'Recon',     'Ambush Artist')
     ];
+
+    constructor(db: AngularFireDatabase) {
+        this.dataRef = db.object('data');
+        this.data = this.dataRef.valueChanges();
+        this.dataRef.set({name: "TEST"});
+    }
 
 }
 
