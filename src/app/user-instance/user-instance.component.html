@@ -1,0 +1,23 @@
+<!-- Currently displays Realtime Database information for tracking -->
+<mat-toolbar color="primary">
+    <!-- <button mat-icon-button>
+        <mat-icon>menu</mat-icon>
+    </button> -->
+    <button mat-icon-button (click)="goHome()">
+        <mat-icon>home</mat-icon>
+    </button>
+    <mat-divider class="toolbar-divider" [vertical]="true"></mat-divider>
+    <span>{{ (instance | async | json) }}</span>
+    <mat-divider class="toolbar-divider" [vertical]="true"></mat-divider>
+    <span>Instance Subscription is Null : {{ instanceSubscriptionTest }}</span>
+    <mat-divider class="toolbar-divider" [vertical]="true"></mat-divider>
+    <span>Test Route Value : {{ routeInfoTest }}</span>
+    <mat-divider class="toolbar-divider" [vertical]="true"></mat-divider>
+    <span>{{ testInstanceKeys | async | json }}</span>
+</mat-toolbar>
+
+<div fxLayout="row wrap" fxFlexFill fxLayoutGap="2vw grid" style="padding-left: 10vw; padding-right: 10vw; padding-top: 8vw;">
+    <div fxFlex="25%" fxFlex.md="33%" fxFlex.sm="50%" fxFlex.xs="100%" *ngFor="let character of characters">
+        <character-card [banner]="character.banner" [icon]="character.icon" [name]="character.name" [title]="character.title"></character-card>
+    </div>
+</div>

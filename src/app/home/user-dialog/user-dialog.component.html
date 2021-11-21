@@ -1,0 +1,11 @@
+<div mat-dialog-content>
+    <p>The session ID you'd like to join</p>
+    <mat-form-field appearance="fill">
+        <mat-label>Session ID</mat-label>
+        <input matInput cdkFocusInitial [(ngModel)]="instanceId">
+    </mat-form-field>
+</div>
+<div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">No Thanks</button>
+    <button mat-button [mat-dialog-close]="instanceId">Ok</button>
+</div>
